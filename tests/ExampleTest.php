@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton\Tests;
+namespace Taecontrol\Timescale\Tests;
 
 class ExampleTest extends TestCase
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Taecontrol\Timescale\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class TimescaleCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'timescale';
 
     public $description = 'My command';
 
