@@ -18,8 +18,13 @@ class TimescaleServiceProvider extends PackageServiceProvider
         $package
             ->name('timescale')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_timescale_table')
             ->hasCommand(TimescaleCommand::class);
+    }
+
+    public function packageRegistered()
+    {
+        $this->app->bind('timescale', function () {
+            return new Timescale();
+        });
     }
 }
