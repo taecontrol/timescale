@@ -3,7 +3,6 @@
 
 namespace Taecontrol\Timescale\Models;
 
-
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
@@ -26,8 +25,7 @@ class TimescaleModel extends Model
         string $bucketWidth,
         ?string $as = null,
         ?string $timeColumn = null,
-    ): Builder
-    {
+    ): Builder {
         $column = $this->allowedColumn($timeColumn, $this->timeColumn);
 
         return $query->selectRaw("time_bucket(?, {$column}){$this->asAlias($as)}", [$bucketWidth]);
@@ -58,7 +56,8 @@ class TimescaleModel extends Model
         Builder $query,
         ?string $as = null,
         ?string $valueColumn = null,
-        ?string $timeColumn = null): Builder
+        ?string $timeColumn = null
+    ): Builder
     {
         $valueCol = $this->allowedColumn($valueColumn, $this->valueColumn);
         $timeCol = $this->allowedColumn($timeColumn, $this->timeColumn);
@@ -71,8 +70,7 @@ class TimescaleModel extends Model
         ?string $as = null,
         ?string $valueColumn = null,
         ?string $timeColumn = null,
-    ): Builder
-    {
+    ): Builder {
         $valueCol = $this->allowedColumn($valueColumn, $this->valueColumn);
         $timeCol = $this->allowedColumn($timeColumn, $this->timeColumn);
 
@@ -86,7 +84,9 @@ class TimescaleModel extends Model
 
     public function allowedColumn(?string $column, string $fallbackColumn): string
     {
-        if (!$column) return $fallbackColumn;
+        if (! $column) {
+            return $fallbackColumn;
+        }
 
         $allowedColumns = Schema::getColumnListing($this->table);
 
