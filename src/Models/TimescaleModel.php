@@ -57,8 +57,7 @@ class TimescaleModel extends Model
         ?string $as = null,
         ?string $valueColumn = null,
         ?string $timeColumn = null
-    ): Builder
-    {
+    ): Builder {
         $valueCol = $this->allowedColumn($valueColumn, $this->valueColumn);
         $timeCol = $this->allowedColumn($timeColumn, $this->timeColumn);
 

@@ -3,7 +3,6 @@
 
 namespace Taecontrol\Timescale\Tests\Mocks;
 
-
 class SchemaBuilderMock
 {
     public function __construct(public array $columns)
