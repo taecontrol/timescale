@@ -4,7 +4,6 @@ namespace Taecontrol\Timescale;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Taecontrol\Timescale\Commands\TimescaleCommand;
 
 class TimescaleServiceProvider extends PackageServiceProvider
 {
@@ -15,10 +14,7 @@ class TimescaleServiceProvider extends PackageServiceProvider
          *
          * More info: https://github.com/spatie/laravel-package-tools
          */
-        $package
-            ->name('timescale')
-            ->hasConfigFile()
-            ->hasCommand(TimescaleCommand::class);
+        $package->name('timescale');
     }
 
     public function packageRegistered()
